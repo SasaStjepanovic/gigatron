@@ -8,8 +8,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.logging.Log;
 import org.testng.Assert;
 import org.testng.Reporter;
+import pages.BasePage;
+import pages.LoginLogoutPage;
 import tests.BaseTest;
 
 import java.util.Map;
@@ -31,7 +34,7 @@ public class BaseSteps extends BaseTest {
 
     @After
     public void tearDown() {
-        quit();
+//        quit();
     }
 
     @Given("a user reads test data from {string} {string} by id {string}")
@@ -41,4 +44,28 @@ public class BaseSteps extends BaseTest {
     }
 
 
+    @And("users clicks on prijava button")
+    public void usersClicksOnPrijavaButton() {
+        new LoginLogoutPage(driver).logInButton();
+    }
+
+    @And("user enters email and password for login")
+    public void userEntersEmailAndPasswordForLogin() {
+        new LoginLogoutPage(driver).enterEmailAndPassword(data.get("email"), data.get("password"));
+    }
+
+    @And("users clicks on prijavi me button")
+    public void usersClicksOnPrijaviMeButton() {
+        new LoginLogoutPage(driver).logInButton2();
+    }
+
+    @And("users accept all cookies")
+    public void usersAcceptAllCookies() {
+        new LoginLogoutPage(driver).acceptAllCookies();
+    }
+
+    @Then("user should be verified login action")
+    public void userShouldBeVerifiedLoginAction() {
+        new BasePage(driver).checkUrlPage(data.get("urlMessage"));
+    }
 }
