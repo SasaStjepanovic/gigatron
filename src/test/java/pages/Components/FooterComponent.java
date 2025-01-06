@@ -21,7 +21,7 @@ public class FooterComponent extends BasePage {
     @FindBy(xpath = "//div[@class='gdpr-title']//button[@class='btn primary']")
     WebElement cookies;
 
-    public void acceptAlCookies(){
+    public void acceptAlCookies() {
         clickElement(cookies, "All cookies are excepted");
     }
 

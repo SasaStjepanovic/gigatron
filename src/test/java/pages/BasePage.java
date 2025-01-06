@@ -37,18 +37,18 @@ public class BasePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", element);
     }
 
-    public void scrollTopOfWindow(){
+    public void scrollTopOfWindow() {
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0);");
     }
 
-    public void clickSpecificCoordinate(){
+    public void clickSpecificCoordinate() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.elementFromPoint(100, 200).click();");
     }
 
-    public void scroll(String x,String y){
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)driver;
-        javascriptExecutor.executeScript("window.scrollBy("+x+","+y+")");
+    public void scroll(String x, String y) {
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+        javascriptExecutor.executeScript("window.scrollBy(" + x + "," + y + ")");
     }
 
     public void clickElementProduct(WebElement element, String log) {
@@ -181,30 +181,30 @@ public class BasePage {
         Assert.assertEquals(actualText, expectedText);
     }
 
-    public String getElementText(WebElement element){
+    public String getElementText(WebElement element) {
 
         return element.getText();
     }
 
-    public String getElementCssValue(WebElement element, String attributeType){
+    public String getElementCssValue(WebElement element, String attributeType) {
 
         return element.getCssValue(attributeType);
     }
 
     public void takeScreenshot(String name, String yesNo) throws IOException {
-        if(yesNo.equalsIgnoreCase("YES")) {
+        if (yesNo.equalsIgnoreCase("YES")) {
             File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             long finish = System.currentTimeMillis();
-            FileUtils.copyFile(file, new File("src/results/screenshots/" + name + "_" +finish+ ".png"));
+            FileUtils.copyFile(file, new File("src/results/screenshots/" + name + "_" + finish + ".png"));
         }
     }
 
     public void reportScreenshot(String name, String desc, String yesOrNo) throws IOException {
-        if(yesOrNo.equalsIgnoreCase("Yes")) {
+        if (yesOrNo.equalsIgnoreCase("Yes")) {
             takeScreenshot(name, yesOrNo);
-            Path path = Paths.get("src/results/screenshots/"+name+".png");
+            Path path = Paths.get("src/results/screenshots/" + name + ".png");
             InputStream is = Files.newInputStream(path);
-            Allure.addAttachment(desc,is);
+            Allure.addAttachment(desc, is);
         }
     }
 }

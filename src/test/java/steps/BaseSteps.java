@@ -34,7 +34,7 @@ public class BaseSteps extends BaseTest {
 
     @After
     public void tearDown() {
-//        quit();
+        quit();
     }
 
     @Given("a user reads test data from {string} {string} by id {string}")
@@ -67,5 +67,45 @@ public class BaseSteps extends BaseTest {
     @Then("user should be verified login action")
     public void userShouldBeVerifiedLoginAction() {
         new BasePage(driver).checkUrlPage(data.get("urlMessage"));
+    }
+
+    @Then("users should verify all Korisnik items")
+    public void usersShouldVerifyAllKorisnikItems() throws InterruptedException {
+        new LoginLogoutPage(driver).checkKorisnikItemsMainMenu();
+    }
+
+    @And("users take hover over Korisnik item")
+    public void usersTakeHoverOverKorisnikItem() throws InterruptedException {
+        new LoginLogoutPage(driver).hoverOverKorisnikMenu();
+    }
+
+    @And("user clicks odjavi me button")
+    public void userClicksOdjaviMeButton() {
+        new LoginLogoutPage(driver).clickOdjaviMebutton();
+    }
+
+    @Then("user should be verified logout action")
+    public void userShouldBeVerifiedLogoutAction() {
+        new LoginLogoutPage(driver).visibilityOfPrijava();
+    }
+
+    @Then("users shoud be verified visibility of Korisnik button")
+    public void usersShoudBeVerifiedVisibilityOfKorisnikButton() {
+        new LoginLogoutPage(driver).visibilityOfKorisnik();
+    }
+
+    @Then("users shoud be verified login with wrong email")
+    public void usersShoudBeVerifiedLoginWithWrongEmail() {
+        Assert.assertEquals(new LoginLogoutPage(driver).getColorEmailLabel(data.get("attributeType")), data.get("color"));
+    }
+
+    @Then("users shoud be verified login with empty password")
+    public void usersShoudBeVerifiedLoginWithEmptyPassword() {
+        Assert.assertEquals(new LoginLogoutPage(driver).getColorPasswordLabel(data.get("attributeType")), data.get("color"));
+    }
+
+    @Then("users shoud be verified login with wrong credentials")
+    public void usersShoudBeVerifiedLoginWithWrongCredentials() {
+        Assert.assertEquals(new LoginLogoutPage(driver).getErrorLoginMessage(),data.get("invalidMessage"));
     }
 }

@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 public class Runner extends AbstractTestNGCucumberTests {
 
-    @DataProvider(parallel = false)
+    @DataProvider(parallel = true)
     public Object[][] scenarios() {
         return super.scenarios();
     }
