@@ -6,17 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f77fd1bb-297e-4637-bf37-76c94ce2c988" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seenium/ChromeDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Seenium/ChromeDriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seenium/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Seenium/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Seenium/FirefoxDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Seenium/FirefoxDriverManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/features/0_LoginLogout.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/0_LoginLogout.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/Components/FooterComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/Components/FooterComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginLogoutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginLogoutPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/steps/BaseSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/BaseSteps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/test_data/gigatron.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/test_data/gigatron.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xmls/gigatron.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xmls/gigatron.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

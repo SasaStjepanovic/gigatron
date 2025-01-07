@@ -55,7 +55,7 @@ public class BaseSteps extends BaseTest {
     }
 
     @And("users clicks on prijavi me button")
-    public void usersClicksOnPrijaviMeButton() {
+    public void usersClicksOnPrijaviMeButton() throws InterruptedException {
         new LoginLogoutPage(driver).logInButton2();
     }
 
@@ -106,6 +106,11 @@ public class BaseSteps extends BaseTest {
 
     @Then("users shoud be verified login with wrong credentials")
     public void usersShoudBeVerifiedLoginWithWrongCredentials() {
-        Assert.assertEquals(new LoginLogoutPage(driver).getErrorLoginMessage(),data.get("invalidMessage"));
+        Assert.assertEquals(new LoginLogoutPage(driver).getErrorLoginMessage(), data.get("invalidMessage"));
+    }
+
+    @And("users should verify invisibility of Prijavi button")
+    public void usersShouldVerifyInvisibilityOfPrijaviButton() {
+        new LoginLogoutPage(driver).invisibilityOfPrijavi();
     }
 }

@@ -8,7 +8,7 @@ Feature: Login scenarios include valid and invalid logins with combination of wr
     And users clicks on prijava button
     And user enters email and password for login
     And users clicks on prijavi me button
-    Then users shoud be verified visibility of Korisnik button
+    And users should verify invisibility of Prijavi button
     Then user should be verified login action
 
     Examples:
@@ -93,7 +93,7 @@ Feature: Login scenarios include valid and invalid logins with combination of wr
     And users clicks on prijava button
     And user enters email and password for login
     And users clicks on prijavi me button
-    Then users shoud be verified visibility of Korisnik button
+    And users should verify invisibility of Prijavi button
     Then user should be verified login action
     And users take hover over Korisnik item
     And user clicks odjavi me button
@@ -111,7 +111,6 @@ Feature: Login scenarios include valid and invalid logins with combination of wr
     And users clicks on prijava button
     And user enters email and password for login
     And users clicks on prijavi me button
-    Then users shoud be verified visibility of Korisnik button
     And users take hover over Korisnik item
     Then users should verify all Korisnik items
 

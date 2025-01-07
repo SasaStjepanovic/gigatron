@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.Components.FooterComponent;
 
@@ -30,7 +32,7 @@ public class LoginLogoutPage extends BasePage {
     @FindBy(xpath = "//header//div[2]//div/a[last()]/span")
     WebElement logInVerification;
 
-    @FindBy(xpath = "//div[@id='header__center__login__and__cart']//a[2]")
+    @FindBy(xpath = "//div[@id='header__center__login__and__cart']//div[@class='user-opt drop-menu noselect']//span[text()='Prijava']")
     WebElement login;
 
     @FindBy(xpath = "//button[@id='loginSubmit']")
@@ -48,7 +50,7 @@ public class LoginLogoutPage extends BasePage {
     @FindBy(xpath = "//label[@for='password']")
     WebElement passwLabelEl;
 
-    @FindBy(xpath = "//div[@class='header__center']//span[text()='Korisnik']")
+    @FindBy(xpath = "//div[@class='header__center']//span[@class='user-identity-name']")
     WebElement korisnikEl;
 
     @FindBy(xpath = "//div[@id='sticky-blue']//span[text()='Korpa']")
@@ -65,8 +67,9 @@ public class LoginLogoutPage extends BasePage {
         clickElement(login, "Login button is pressed");
     }
 
-    public void logInButton2() {
+    public void logInButton2() throws InterruptedException {
         clickElementJS(login2, "Login2 button is pressed");
+        Thread.sleep(5000);
     }
 
     public void enterEmailAndPassword(String email, String password) {
@@ -90,36 +93,46 @@ public class LoginLogoutPage extends BasePage {
         }
     }
 
-    public void hoverOverKorisnikMenu () throws InterruptedException {
+    public void hoverOverKorisnikMenu() throws InterruptedException {
         explicitWait(korisnikEl);
         Actions actions = new Actions(driver);
         actions.pause(5);
-        actions.moveToElement(driver.findElement(By.xpath("//div[@class='header__center']//span[text()='Korisnik']"))).build().perform();
+        actions.moveToElement(driver.findElement(By.xpath("//div[@class='header__center']//span[@class='user-identity-name']"))).build().perform();
     }
 
-    public void clickOdjaviMebutton(){
+    public void clickOdjaviMebutton() {
         clickElementJS(odjaviSeEl, "Odjavi se button is pressed");
     }
 
-    public void visibilityOfKorisnik(){
+    public void visibilityOfKorisnik() {
         explicitWait(korisnikEl);
     }
 
-    public void visibilityOfPrijava(){
+    public void visibilityOfPrijava() {
         explicitWait(login);
     }
 
-    public String getColorEmailLabel(String attributeType){
+    public void invisibilityOfPrijavi() {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, waitTime);
+        boolean isInvisible = webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='header__center__login__and__cart']//div[@class='user-opt drop-menu noselect']//span[text()='Prijava']")));
+        if (isInvisible) {
+            System.out.println("The element is invisible.");
+        } else {
+            System.out.println("The element is still visible.");
+        }
+    }
+
+    public String getColorEmailLabel(String attributeType) {
         String colorValue = emailLabelEl.getCssValue("color");
         System.out.println("Current color is: " + colorValue);
-        return  getElementCssValue(emailLabelEl,attributeType);
+        return getElementCssValue(emailLabelEl, attributeType);
     }
 
-    public String getColorPasswordLabel(String attributeType){
-        return  getElementCssValue(passwLabelEl,attributeType);
+    public String getColorPasswordLabel(String attributeType) {
+        return getElementCssValue(passwLabelEl, attributeType);
     }
 
-    public String getErrorLoginMessage (){
+    public String getErrorLoginMessage() {
         return getElementText(loginErrorMessageEl);
     }
 
