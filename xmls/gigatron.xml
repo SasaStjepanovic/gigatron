@@ -12,7 +12,7 @@
     <parameter name="AllureScrYesOrNo" value="True"/>
     <parameter name="ScrYesOrNo" value="True"/>
 
-    <test name="Internet prodaja guma tests_sale">
+    <test name="Gigatron scenarios">
         <classes>
             <class name="runners.Runner"/>
         </classes>

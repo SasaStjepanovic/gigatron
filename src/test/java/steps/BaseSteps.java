@@ -12,6 +12,7 @@ import org.apache.commons.logging.Log;
 import org.testng.Assert;
 import org.testng.Reporter;
 import pages.BasePage;
+import pages.LicniPodaciLozinkaPage;
 import pages.LoginLogoutPage;
 import tests.BaseTest;
 
@@ -112,5 +113,65 @@ public class BaseSteps extends BaseTest {
     @And("users should verify invisibility of Prijavi button")
     public void usersShouldVerifyInvisibilityOfPrijaviButton() {
         new LoginLogoutPage(driver).invisibilityOfPrijavi();
+    }
+
+    @And("user clicks licni podaci i lozinka item")
+    public void userClicksLicniPodaciILozinkaItem() {
+        new LicniPodaciLozinkaPage(driver).clickLicniPodaciItem();
+    }
+
+    @Then("user should veriify opened page")
+    public void userShouldVeriifyOpenedPage() {
+        new BasePage(driver).checkUrlPage(data.get("urlMessage"));
+    }
+
+    @And("users enter name field")
+    public void usersEnterNameField() {
+        new LicniPodaciLozinkaPage(driver).enterName(data.get("name"));
+    }
+
+    @And("users clicks sacuvaj button")
+    public void usersClicksSacuvajButton() {
+        new LicniPodaciLozinkaPage(driver).clickSacuvajbutton();
+    }
+
+    @And("users confirm popup message")
+    public void usersConfirmPopupMessage() {
+        new LicniPodaciLozinkaPage(driver).confirmPopupMessage();
+    }
+
+    @Then("users verify error message of name")
+    public void usersVerifyErrorMessageOfName() {
+        Assert.assertEquals(new LicniPodaciLozinkaPage(driver).getErrorNameMessage(), data.get("invalidMessage"));
+    }
+
+    @And("users enter address field")
+    public void usersEnterAddressField() {
+        new LicniPodaciLozinkaPage(driver).enterAddress(data.get("address"));
+    }
+
+    @Then("users verify error message of address")
+    public void usersVerifyErrorMessageOfAddress() {
+        Assert.assertEquals(new LicniPodaciLozinkaPage(driver).getErrorAddressMessage(), data.get("invalidMessage"));
+    }
+
+    @And("users enter ptt field")
+    public void usersEnterPttField() {
+        new LicniPodaciLozinkaPage(driver).enterPtt(data.get("ptt"));
+    }
+
+    @Then("users verify error message of ptt")
+    public void usersVerifyErrorMessageOfPtt() {
+        Assert.assertEquals(new LicniPodaciLozinkaPage(driver).getErrorPttMessage(), data.get("invalidMessage"));
+    }
+
+    @And("users enter phone field")
+    public void usersEnterPhoneField() {
+        new LicniPodaciLozinkaPage(driver).enterPhone(data.get("phone"));
+    }
+
+    @Then("users verify error message of phone")
+    public void usersVerifyErrorMessageOfPhone() {
+        Assert.assertEquals(new LicniPodaciLozinkaPage(driver).getErrorPhoneMessage(), data.get("invalidMessage"));
     }
 }
