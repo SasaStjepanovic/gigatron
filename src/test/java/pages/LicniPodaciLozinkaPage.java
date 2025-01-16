@@ -23,24 +23,8 @@ public class LicniPodaciLozinkaPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-
-    @FindBy(xpath = "//header//div[2]/a[last()]/span")
-    WebElement logInButtonHeader;
-
-    @FindBy(xpath = "//header//div[2]//div/a[last()]/span")
-    WebElement logInVerification;
-
     @FindBy(xpath = "//div[@id='header__center__login__and__cart']//div[@class='user-opt drop-menu noselect']//span[text()='Prijava']")
     WebElement login;
-
-    @FindBy(xpath = "//button[@id='loginSubmit']")
-    WebElement login2;
-
-    @FindBy(css = "#password")
-    WebElement passwordEl;
-
-    @FindBy(css = "#email")
-    WebElement emailEl;//
 
     @FindBy(xpath = "//div[@id='content']//div[@class='wrap']//li//a[text()=' Lični podaci i lozinka']")
     WebElement licniPodaciEl;
@@ -75,10 +59,6 @@ public class LicniPodaciLozinkaPage extends BasePage {
     @FindBy(xpath = "//div[@class='col col-7 min-height']/div[1]/div[4]//div")
     WebElement errorMessagePhoneEl;
 
-
-    public void logInButton() {
-        clickElement(login, "Login button is pressed");
-    }
 
     public void clickLicniPodaciItem() {
         clickElementJS(licniPodaciEl, "Licni podaci item is pressed");

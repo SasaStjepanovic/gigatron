@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 import org.apache.commons.logging.Log;
 import org.testng.Assert;
 import org.testng.Reporter;
+import pages.AdresaDostavePage;
 import pages.BasePage;
 import pages.LicniPodaciLozinkaPage;
 import pages.LoginLogoutPage;
@@ -173,5 +174,40 @@ public class BaseSteps extends BaseTest {
     @Then("users verify error message of phone")
     public void usersVerifyErrorMessageOfPhone() {
         Assert.assertEquals(new LicniPodaciLozinkaPage(driver).getErrorPhoneMessage(), data.get("invalidMessage"));
+    }
+
+    @And("user clicks adresa dostave item")
+    public void userClicksAdresaDostaveItem() {
+        new AdresaDostavePage(driver).adresaDostaveItem();
+    }
+
+    @And("users delete all adresa dostave")
+    public void usersDeleteAllAdresaDostave() {
+        new AdresaDostavePage(driver).deleteAllAdresaDostave();
+    }
+
+    @And("users clicks sacuvaj button for address")
+    public void usersClicksSacuvajButtonForAddress() {
+        new AdresaDostavePage(driver).clickSacuvajbutton();
+    }
+
+    @And("users enter email field")
+    public void usersEnterEmailField() {
+        new AdresaDostavePage(driver).enterEmail(data.get("email2"));
+    }
+
+    @Then("users should verify obrisi unos button is visible")
+    public void usersShouldVerifyObrisiUnosButtonIsVisible() {
+        new AdresaDostavePage(driver).visibilityOfSacuvajButton();
+    }
+
+    @Then("users verify error message of name for address")
+    public void usersVerifyErrorMessageOfNameForAddress() {
+        Assert.assertEquals(new AdresaDostavePage(driver).getErrorNameMessage(), data.get("invalidMessage"));
+    }
+
+    @Then("users verify error message of address for address")
+    public void usersVerifyErrorMessageOfAddressForAddress() {
+        Assert.assertEquals(new AdresaDostavePage(driver).getErrorAddressMessage(), data.get("invalidMessage"));
     }
 }

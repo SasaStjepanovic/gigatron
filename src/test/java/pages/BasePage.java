@@ -207,4 +207,5 @@ public class BasePage {
             Allure.addAttachment(desc, is);
         }
     }
+
 }
