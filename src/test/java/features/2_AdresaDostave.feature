@@ -27,7 +27,7 @@ Feature: Adresa dostave scenarios include valid and invalid combination of input
       | TC_ID  |
       | IP_010 |
 
-  @Gigatron1
+  @Gigatron
   Scenario Outline: Adresa dostave invalid name (empty)
 
     Given a user reads test data from "gigatron" "korisnik" by id "<TC_ID>"
@@ -47,7 +47,7 @@ Feature: Adresa dostave scenarios include valid and invalid combination of input
       | TC_ID  |
       | IP_011 |
 
-  @Gigatron1
+  @Gigatron
   Scenario Outline: Adresa dostave invalid name (only name)
 
     Given a user reads test data from "gigatron" "korisnik" by id "<TC_ID>"

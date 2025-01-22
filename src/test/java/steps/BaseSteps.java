@@ -1,24 +1,17 @@
 package steps;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import excel.ExcelSupport;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.apache.commons.logging.Log;
 import org.testng.Assert;
 import org.testng.Reporter;
-import pages.AdresaDostavePage;
-import pages.BasePage;
-import pages.LicniPodaciLozinkaPage;
-import pages.LoginLogoutPage;
+import pages.*;
 import tests.BaseTest;
 
 import java.util.Map;
-import java.util.ResourceBundle;
 
 public class BaseSteps extends BaseTest {
 
@@ -209,5 +202,20 @@ public class BaseSteps extends BaseTest {
     @Then("users verify error message of address for address")
     public void usersVerifyErrorMessageOfAddressForAddress() {
         Assert.assertEquals(new AdresaDostavePage(driver).getErrorAddressMessage(), data.get("invalidMessage"));
+    }
+
+    @And("users clicks proizvodi button")
+    public void usersClicksProizvodiButton() {
+        new LapTopRacunariMainPage(driver).clickProizvodiButton();
+    }
+
+    @And("users clicks laptop racunari item")
+    public void usersClicksLaptopRacunariItem() {
+        new LapTopRacunariMainPage(driver).clickLaptopRacunariItem();
+    }
+
+    @Then("users should verify all laptop items")
+    public void usersShouldVerifyAllLaptopItems() throws InterruptedException {
+        new LapTopRacunariMainPage(driver).checkLapTopRacunariItems();
     }
 }
