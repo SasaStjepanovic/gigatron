@@ -208,4 +208,37 @@ public class BasePage {
         }
     }
 
+    public void filterClickDisplayMoreProducts(String filter){
+        WebElement el = driver.findElement(By.xpath("//body/div[@id='root']/div[@id='app']/div[@id='content']/div[@class='filterpage']/div[@class='filterpage__main']/div[@class='filters-view']/div[@class='filterpage__main__bar specifications']/div[@class='filter-bar']/div/span[text()='"+ filter +"']"));
+        clickElementJS(el, "More options are displayed, first filter");
+    }
+
+    public void filterClickDisplayMoreValues(String filter){
+        WebElement el = driver.findElement(By.xpath("//body/div[@id='root']/div[@id='app']/div[@id='content']/div[@class='filterpage']/div[@class='filterpage__main']/div[@class='filters-view']/div[@class='filterpage__main__bar specifications']/div[@class='filter-bar']/div/span[text()='"+ filter +"']//..//div//div[text()='Prikaži više']"));
+        clickElementJS(el, "More options are displayed, second filter");
+    }
+
+    public void applyFilter(String filter){
+        boolean b = driver.findElements(By.xpath("//div[@class='filterpage__main']//span[text()='"+ filter +"']/..//span[@class='Collapsible__trigger is-closed']")).size() > 0;
+
+        if(b){
+            filterClickDisplayMoreProducts(filter);
+        } else {
+            System.out.println("First filter is already expanded");
+        }
+    }
+
+    public void applyFilterValue (String filter, String value){
+        boolean bo = driver.findElements(By.xpath("//body/div[@id='root']/div[@id='app']/div[@id='content']/div[@class='filterpage']/div[@class='filterpage__main']/div[@class='filters-view']/div[@class='filterpage__main__bar specifications']/div[@class='filter-bar']/div/span[text()='"+ filter +"']//..//div//div[text()='Prikaži više']")).size() > 0;
+
+        if(bo){
+            filterClickDisplayMoreValues(filter);
+        } else {
+            System.out.println("Second filter is already expanded");
+        }
+
+        WebElement elementValue = driver.findElement(By.xpath("//body/div[@id='root']/div[@id='app']/div[@id='content']/div[@class='filterpage']/div[@class='filterpage__main']/div[@class='filters-view']/div[@class='filterpage__main__bar specifications']/div[@class='filter-bar']/div/div//span[text()='"+ value +"']"));
+        checkCheckbox(elementValue, " Value: " + value + " is checked");
+    }
+
 }

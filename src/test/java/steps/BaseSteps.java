@@ -1,5 +1,6 @@
 package steps;
 
+import com.sun.xml.internal.ws.api.server.LazyMOMProvider;
 import excel.ExcelSupport;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -29,7 +30,7 @@ public class BaseSteps extends BaseTest {
 
     @After
     public void tearDown() {
-        quit();
+//        quit();
     }
 
     @Given("a user reads test data from {string} {string} by id {string}")
@@ -218,4 +219,18 @@ public class BaseSteps extends BaseTest {
     public void usersShouldVerifyAllLaptopItems() throws InterruptedException {
         new LapTopRacunariMainPage(driver).checkLapTopRacunariItems();
     }
+
+    @And("users clicks laptop racunari sub item")
+    public void usersClicksLaptopRacunariSubItem() {
+        new LapTopRacunariSubPage(driver).clickLaptopRacunarSubiItem();
+    }
+
+    @And("users clicks filter button")
+    public void usersClicksFilterButton() {
+        new LapTopRacunariSubPage(driver).filterLaptop(data.get("filter1"),data.get("value1"),data.get("filter2"),data.get("value2"));
+    }
+
+    @And("users clicks more filters")
+    public void usersClicksMoreFilters() {
+        new BasePage(driver).filterClickDisplayMoreValues(data.get("filter"));    }
 }

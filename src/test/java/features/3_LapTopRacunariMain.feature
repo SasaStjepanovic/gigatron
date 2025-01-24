@@ -1,7 +1,7 @@
-Feature: Adresa dostave scenarios include valid and invalid combination of input parameters
+Feature: This feature check and verify all items of Laptop racunari page
 
-  @Gigatron1
-  Scenario Outline: Adresa dostave valid data
+  @Gigatron
+  Scenario Outline: Check all items of Laptop racunari page
 
     Given a user reads test data from "gigatron" "korisnik" by id "<TC_ID>"
     And users accept all cookies
@@ -12,7 +12,6 @@ Feature: Adresa dostave scenarios include valid and invalid combination of input
     And users clicks proizvodi button
     And users clicks laptop racunari item
     Then users should verify all laptop items
-
 
     Examples:
       | TC_ID  |

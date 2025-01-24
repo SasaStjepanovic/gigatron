@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f77fd1bb-297e-4637-bf37-76c94ce2c988" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/features/4_LapTopRacunariSubPage.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/LapTopRacunariSubPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/2_AdresaDostave.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/2_AdresaDostave.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/3_LapTopRacunari.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/3_LapTopRacunariMain.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LapTopRacunariMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LapTopRacunariMainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/steps/BaseSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/steps/BaseSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/test_data/gigatron.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/test_data/gigatron.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
