@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 @CucumberOptions(
         features = "src/test/java/features",
         glue = "steps",
-        tags = "@Gigatron1",
+        tags = "@Gigatron",
         plugin = {"io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"}
 )
 

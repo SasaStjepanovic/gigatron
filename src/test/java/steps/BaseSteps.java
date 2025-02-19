@@ -30,7 +30,7 @@ public class BaseSteps extends BaseTest {
 
     @After
     public void tearDown() {
-//        quit();
+        quit();
     }
 
     @Given("a user reads test data from {string} {string} by id {string}")
@@ -227,10 +227,25 @@ public class BaseSteps extends BaseTest {
 
     @And("users clicks filter button")
     public void usersClicksFilterButton() {
-        new LapTopRacunariSubPage(driver).filterLaptop(data.get("filter1"),data.get("value1"),data.get("filter2"),data.get("value2"));
+        new LapTopRacunariSubPage(driver).filterLaptop(data.get("filter1"),data.get("value1"),data.get("filter2"),data.get("value2"),data.get("filter3"),data.get("value3"));
     }
 
     @And("users clicks more filters")
     public void usersClicksMoreFilters() {
         new BasePage(driver).filterClickDisplayMoreValues(data.get("filter"));    }
+
+    @Then("users should verify filtered menu items")
+    public void usersShouldVerifyFilteredMenuItems() throws InterruptedException {
+        new LapTopRacunariSubPage(driver).checkFilterPageContent();
+    }
+
+    @And("users clicks delete all button")
+    public void usersClicksDeleteAllButton() {
+        new LapTopRacunariSubPage(driver).clickDeleteAllButton();
+    }
+
+    @Then("users should verify all deleted filtered items")
+    public void usersShouldVerifyAllDeletedFilteredItems() {
+        new LapTopRacunariSubPage(driver).invisibilityOfElement();
+    }
 }
